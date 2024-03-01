@@ -17,26 +17,49 @@
     height: 1000px;
 }
 
-.cube {
-  width: 400px;
-  height: 400px;
-  display: flex;
-  flex-direction: column;
+.photo{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
 }
 
-.cube:hover .small__cube{
-    transform: rotate(90deg);
-    background-color: yellow;
-    border: 3px solid green;
-    transition: 0.6s;
+.photo__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
-.cube__top,.cube__bottom{
-    display: flex;
+.photo::before{
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.461);
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s;
 }
 
-.small__cube {
-  width: 50%;
-  height: 200px;
-  background-color: blue;
+.photo::after{
+   position: absolute;
+    content: " ";
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.461);
+    right: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s; 
+}
+
+.photo:hover::before{
+    left: -50%;
+}
+
+.photo:hover::after{
+    right: -50%;
 }
